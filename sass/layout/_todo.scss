@@ -1,0 +1,165 @@
+@use "../global/colors" as c;
+
+.todo {
+    &__header {
+        margin: 4rem 0;
+        display: flex;
+        align-items: center;
+        font-size: 3rem;
+        justify-content: center;
+        font-weight: 100;
+        color: c.$lighterblue;
+        text-shadow: 0 2px 5px c.$lightblue;
+    }
+
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__input {
+            background-color: c.$bluegrey;
+            font-size: 1rem;
+            opacity: 75%;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px 0 0 8px;
+            width: 50%;
+            color: white;
+            box-shadow: 0 0 100px c.$lightblue;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__button {
+            background-color: c.$bluegrey;
+            border: none;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            color: c.$lighterblue;
+            transition: all 0.7s ease-in-out;
+
+            &:hover {
+                background-color: c.$lighterblue;
+                color: c.$bluegrey;
+                opacity: 70%;
+            }
+        }
+        
+        &__select {
+            margin: 1rem;
+            position: relative;
+            overflow: hidden;
+            opacity: 70%;
+            
+            &__filter {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                outline: none;
+                border: none;
+                color: white;
+                box-shadow: none;
+                background-color: c.$bluegrey;
+                padding: 1rem;
+                padding-right: 2.5rem;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            &::after {
+                content: "\25BC";
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0.9rem 0.5rem;
+                color: c.$lightblue;
+                border-radius: 0 8px 8px 0;
+                transition: all 0.7s ease-in-out;
+                pointer-events: none;
+                // background-color: c.$bluegrey;
+            }
+    
+            &:hover::after {
+                background-color: c.$lightblue;
+                color: c.$bluegrey;
+                opacity: 50%;
+            }
+        }
+    }
+
+    &__container {
+        margin: 3rem;
+        &__list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            list-style: none;
+
+            &__point {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 70%;
+                
+                &__complete {
+                    opacity: 40%;
+                }
+
+                &__item {
+                    padding: 1rem;
+                    margin-bottom: 0.75rem;
+                    font-size: 1rem;
+                    background-color: c.$bluegrey;
+                    border-radius: 8px 0 0 8px;
+
+                    &__stricken {
+                        text-decoration: line-through;
+                    }
+                }
+
+                &__check {
+                    padding: 1.25rem;
+                    margin-bottom: 0.75rem;
+                    color: c.$green;
+                    background-color: c.$bluegrey;
+                    border: none;
+                    transition: all 0.7s ease-in-out;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        background-color: c.$green;
+                        color: c.$bluegrey;
+                        opacity: 70%;
+                    }
+                }
+
+                &__checked {
+                    background-color: c.$green;
+                    color: c.$bluegrey;
+                }
+
+                &__trash {
+                    padding: 1.25rem;
+                    margin-bottom: 0.75rem;
+                    color: c.$red;
+                    background-color: c.$bluegrey;
+                    border: none;
+                    border-radius: 0 8px 8px 0;
+                    transition: all 0.7s ease-in-out;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: c.$red;
+                        opacity: 70%;
+                        color: c.$bluegrey;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
