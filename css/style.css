@@ -16,7 +16,7 @@
 }
 
 html {
-  background-color: #121621;
+  background-color: #110B17;
   font-family: Outfit, sans-serif;
   color: white;
 }
@@ -27,9 +27,42 @@ html {
   align-items: center;
   font-size: 3rem;
   justify-content: center;
-  font-weight: 100;
-  color: #67faff;
-  text-shadow: 0 2px 5px #34E4EA;
+  font-weight: 400;
+  color: #B298DC;
+  text-shadow: 0px 4px 8px #A663CC;
+}
+.todo__background {
+  display: grid;
+  position: fixed;
+  grid-template-areas: "circle1 circle5 circle2" "circle4 circle3 circle6";
+}
+.todo__background__circle1, .todo__background__circle2, .todo__background__circle3, .todo__background__circle4, .todo__background__circle5, .todo__background__circle6 {
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
+  filter: blur(7rem);
+  opacity: 70%;
+}
+.todo__background__circle1 {
+  background-color: #6F2DBD;
+  grid-area: circle1;
+}
+.todo__background__circle2 {
+  background-color: #A663CC;
+  grid-area: circle2;
+}
+.todo__background__circle3 {
+  background-color: #B9FAF8;
+  grid-area: circle3;
+}
+.todo__background__circle4 {
+  grid-area: circle4;
+}
+.todo__background__circle5 {
+  grid-area: circle5;
+}
+.todo__background__circle6 {
+  grid-area: circle6;
 }
 .todo__form {
   display: flex;
@@ -37,30 +70,29 @@ html {
   justify-content: center;
 }
 .todo__form__input {
-  background-color: #2A324B;
+  background-color: rgba(178, 152, 220, 0.3);
   font-size: 1rem;
   opacity: 75%;
   border: none;
-  padding: 1rem;
+  padding: 0.9rem;
   border-radius: 8px 0 0 8px;
   width: 50%;
   color: white;
-  box-shadow: 0 0 100px #34E4EA;
 }
 .todo__form__input:focus {
   outline: none;
 }
 .todo__form__button {
-  background-color: #2A324B;
   border: none;
   padding: 1rem;
   border-radius: 0 8px 8px 0;
-  color: #67faff;
+  background-color: #B298DC;
+  color: #6F2DBD;
   transition: all 0.7s ease-in-out;
 }
 .todo__form__button:hover {
-  background-color: #67faff;
-  color: #2A324B;
+  background-color: #6F2DBD;
+  color: #B298DC;
   opacity: 70%;
 }
 .todo__form__select {
@@ -75,9 +107,10 @@ html {
   appearance: none;
   outline: none;
   border: none;
-  color: white;
   box-shadow: none;
-  background-color: #2A324B;
+  -webkit-text-fill-color: white;
+  color: #6f2dbd;
+  background-color: rgba(178, 152, 220, 0.3);
   padding: 1rem;
   padding-right: 2.5rem;
   border-radius: 8px;
@@ -89,15 +122,16 @@ html {
   top: 0;
   right: 0;
   padding: 0.9rem 0.5rem;
-  color: #34E4EA;
   border-radius: 0 8px 8px 0;
   transition: all 0.7s ease-in-out;
   pointer-events: none;
+  color: #6F2DBD;
+  background-color: #B298DC;
 }
 .todo__form__select:hover::after {
-  background-color: #34E4EA;
-  color: #2A324B;
-  opacity: 50%;
+  background-color: #6F2DBD;
+  color: white;
+  opacity: 70%;
 }
 .todo__container {
   margin: 3rem;
@@ -116,13 +150,13 @@ html {
   opacity: 70%;
 }
 .todo__container__list__point__complete {
-  opacity: 40%;
+  opacity: 45%;
 }
 .todo__container__list__point__item {
   padding: 1rem;
   margin-bottom: 0.75rem;
   font-size: 1rem;
-  background-color: #2A324B;
+  background-color: rgba(166, 99, 204, 0.3);
   border-radius: 8px 0 0 8px;
 }
 .todo__container__list__point__item__stricken {
@@ -132,25 +166,24 @@ html {
   padding: 1.25rem;
   margin-bottom: 0.75rem;
   color: #40f981;
-  background-color: #2A324B;
+  background-color: rgba(166, 99, 204, 0.3);
   border: none;
   transition: all 0.7s ease-in-out;
   cursor: pointer;
 }
 .todo__container__list__point__check:hover {
-  background-color: #40f981;
-  color: #2A324B;
-  opacity: 70%;
+  background-color: rgba(64, 249, 129, 0.75);
+  color: white;
 }
 .todo__container__list__point__checked {
   background-color: #40f981;
-  color: #2A324B;
+  color: #a663cc;
 }
 .todo__container__list__point__trash {
   padding: 1.25rem;
   margin-bottom: 0.75rem;
   color: #fa556b;
-  background-color: #2A324B;
+  background-color: rgba(166, 99, 204, 0.3);
   border: none;
   border-radius: 0 8px 8px 0;
   transition: all 0.7s ease-in-out;
@@ -158,6 +191,18 @@ html {
 }
 .todo__container__list__point__trash:hover {
   background-color: #fa556b;
-  opacity: 70%;
-  color: #2A324B;
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .todo__background {
+    grid-template-areas: "circle1 circle5" "circle4 circle2" "circle3 circle6";
+  }
+  .todo__background__circle1, .todo__background__circle2, .todo__background__circle3, .todo__background__circle4, .todo__background__circle5, .todo__background__circle6 {
+    width: 30vh;
+    height: 30vh;
+    border-radius: 50%;
+    filter: blur(7rem);
+    opacity: 70%;
+  }
 }
